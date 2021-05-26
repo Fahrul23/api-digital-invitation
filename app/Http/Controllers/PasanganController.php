@@ -34,33 +34,31 @@ class PasanganController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        $mempelai_pria = new Mempelai_pria;
-        $mempelai_pria->nama_lengkap = $request->nama_lengkap_pria;
-        $mempelai_pria->nama_panggilan = $request->nama_panggilan_pria;
-        $mempelai_pria->foto = $request->file('foto_pria')->store('images');
-        
-
-        $mempelai_pria->nama_ayah = $request->nama_ayah_pria;
-        $mempelai_pria->nama_ibu = $request->nama_ibu_pria;
-        $mempelai_pria->alamat = $request->alamat_pria;
-        $mempelai_pria->akun_instagram = $request->akun_instagram_pria;
+        $mempelai_pria =new Mempelai_pria;
+        $mempelai_pria->nama_lengkap=$req->input('NamalengkapPria');
+        $mempelai_pria->nama_panggilan=$req->input('NamaPanggilanPria');
+        $mempelai_pria->nama_ayah=$req->input('NamaAyahPria');
+        $mempelai_pria->nama_ibu=$req->input('NamaIbuPria');
+        $mempelai_pria->alamat=$req->input('AlamatPria');
+        $mempelai_pria->akun_instagram=$req->input('AkunInstagramPria');
+        $mempelai_pria->foto=$req->file('FotoPria')->store('products');
         $mempelai_pria->save();
-
-        $mempelai_wanita = new Mempelai_Wanita;
-        $mempelai_wanita->nama_lengkap = $request->nama_lengkap_wanita;
-        $mempelai_wanita->nama_panggilan = $request->nama_panggilan_wanita;
-        $mempelai_wanita->foto = $request->file('foto_wanita')->store('images');
-        $mempelai_wanita->nama_ayah = $request->nama_ayah_wanita;
-        $mempelai_wanita->nama_ibu = $request->nama_ibu_wanita;
-        $mempelai_wanita->alamat = $request->alamat_wanita;
-        $mempelai_wanita->akun_instagram = $request->akun_instagram_wanita;
-        $mempelai_wanita->save();
-
+        
+        $mempelai_Wanita =new Mempelai_Wanita;
+        $mempelai_Wanita->nama_lengkap=$req->input('NamalengkapWanita');
+        $mempelai_Wanita->nama_panggilan=$req->input('NamaPanggilanWanita');
+        $mempelai_Wanita->nama_ayah=$req->input('NamaAyahWanita');
+        $mempelai_Wanita->nama_ibu=$req->input('NamaIbuWanita');
+        $mempelai_Wanita->alamat=$req->input('AlamatWanita');
+        $mempelai_Wanita->akun_instagram=$req->input('AkunInstagramWanita');
+        $mempelai_Wanita->foto=$req->file('FotoWanita')->store('products');
+        $mempelai_Wanita->save();
+        
         return response()->json([
             "message" => "Create Data Success",
-            "data" => [$mempelai_pria,$mempelai_wanita]
+            "data" => [$mempelai_pria,$mempelai_Wanita]
         ]);     
     }
 

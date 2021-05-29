@@ -15,13 +15,14 @@ class CreateMempelaiWanitaTable extends Migration
     {
         Schema::create('mempelai_wanita', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('nama_lengkap');
             $table->string('nama_panggilan');
             $table->string('foto');
             $table->string('nama_ayah');
             $table->string('nama_ibu');
             $table->string('alamat');
-            $table->string('akun_instagram');
+            $table->string('akun_instagram');    
             $table->timestamps();
         });
     }

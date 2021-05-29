@@ -11,6 +11,7 @@ class Mempelai_Pria extends Model
     public $table = 'mempelai_pria';
 
     protected $fillable = [
+       'user_id',
        'nama_lengkap',
        'nama_panggila',
        'foto',

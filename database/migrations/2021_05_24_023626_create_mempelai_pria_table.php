@@ -15,6 +15,7 @@ class CreateMempelaiPriaTable extends Migration
     {
         Schema::create('mempelai_pria', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('nama_lengkap');
             $table->string('nama_panggilan');
             $table->string('foto');

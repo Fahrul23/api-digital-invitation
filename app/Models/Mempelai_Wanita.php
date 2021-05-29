@@ -11,6 +11,7 @@ class Mempelai_Wanita extends Model
     public $table = 'mempelai_wanita';
 
     protected $fillable = [
+       'user_id',
        'nama_lengkap',
        'nama_panggila',
        'foto',

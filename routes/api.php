@@ -19,4 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/pasangan/',[PasanganController::class, 'store']);
+Route::get('/pasangan/{id}',[PasanganController::class, 'index']);
+Route::post('/pasangan',[PasanganController::class, 'store']);
+Route::post('/pasangan/{id}',[PasanganController::class, 'update']);
